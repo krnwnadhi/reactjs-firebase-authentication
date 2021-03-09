@@ -37,7 +37,7 @@ export default function UpdateProfile() {
 
     Promise.all(promises)
       .then(() => {
-        history.push("/profile")
+        history.push("/")
       })
       .catch(() => {
         setError("Failed to update")
@@ -56,58 +56,59 @@ export default function UpdateProfile() {
   }
 
   return (
-    <ContainerCentered>
+    <div>
       <Nav />
-      <Card bg="light" border="primary" className="shadow-sm">
-        <Card.Body>
-          <h2 className="text-center mb-4">Update Profile</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                ref={emailRef}
-                required
-                defaultValue={currentUser.email}
-              />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <InputGroup className="mb-2 mr-sm-2">
-                <InputGroup.Prepend>
-                  <InputGroup.Text style={{ cursor: "pointer" }} onClick={toggleShow}> {hidden ? <VisibilityIcon /> : <VisibilityOffIcon />}</InputGroup.Text>
-                </InputGroup.Prepend>
+      <ContainerCentered>
+        <Card bg="light" border="primary" className="shadow-sm">
+          <Card.Body>
+            <h2 className="text-center mb-4">Update Profile</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email">
+                <Form.Label>Email</Form.Label>
                 <Form.Control
-                  type={hidden ? "password" : "text"}
-                  ref={passwordRef}
-                  placeholder="Leave blank to keep the same"
+                  type="email"
+                  ref={emailRef}
+                  required
+                  defaultValue={currentUser.email}
                 />
-              </InputGroup>
-
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Password Confirmation</Form.Label>
-              <InputGroup className="mb-2 mr-sm-2">
-                <InputGroup.Prepend>
-                  <InputGroup.Text style={{ cursor: "pointer" }} onClick={toggleShowTwo}> {hiddenTwo ? <VisibilityIcon /> : <VisibilityOffIcon />}</InputGroup.Text>
-                </InputGroup.Prepend>
-                <Form.Control
-                  type={hiddenTwo ? "password" : "text"}
-                  ref={passwordConfirmRef}
-                  placeholder="Leave blank to keep the same"
-                />
-              </InputGroup>
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Update
+              </Form.Group>
+              <Form.Group id="password">
+                <Form.Label>Password</Form.Label>
+                <InputGroup className="mb-2 mr-sm-2">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text style={{ cursor: "pointer" }} onClick={toggleShow}> {hidden ? <VisibilityIcon /> : <VisibilityOffIcon />}</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <Form.Control
+                    type={hidden ? "password" : "text"}
+                    ref={passwordRef}
+                    placeholder="Leave blank to keep the same"
+                  />
+                </InputGroup>
+              </Form.Group>
+              <Form.Group id="password-confirm">
+                <Form.Label>Password Confirmation</Form.Label>
+                <InputGroup className="mb-2 mr-sm-2">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text style={{ cursor: "pointer" }} onClick={toggleShowTwo}> {hiddenTwo ? <VisibilityIcon /> : <VisibilityOffIcon />}</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <Form.Control
+                    type={hiddenTwo ? "password" : "text"}
+                    ref={passwordConfirmRef}
+                    placeholder="Leave blank to keep the same"
+                  />
+                </InputGroup>
+              </Form.Group>
+              <Button disabled={loading} className="w-100" type="submit">
+                Update
             </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        <Link to="/profile">Cancel</Link>
-      </div>
-    </ContainerCentered>
+            </Form>
+          </Card.Body>
+        </Card>
+        <div className="w-100 text-center mt-2">
+          <Link to="/">Cancel</Link>
+        </div>
+      </ContainerCentered>
+    </div>
   )
 }

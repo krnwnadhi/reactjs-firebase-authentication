@@ -5,10 +5,7 @@ export default function Dashboard() {
     return (
         <div>
             <Nav />
-            <br />
-            <br />
-            <br />
-            <div>Dashboard</div>
+            <div className="container">Dashboard</div>
         </div>
     )
 }

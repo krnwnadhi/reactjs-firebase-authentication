@@ -28,7 +28,7 @@ export default function Signup() {
       setError("")
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      history.push("/profile")
+      history.push("/")
     } catch {
       setError("User already exist")
     }
